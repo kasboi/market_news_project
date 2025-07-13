@@ -1,69 +1,90 @@
-# React + TypeScript + Vite
+# Finance Digest
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A finance news application built with React, TypeScript, and Vite. The app fetches and displays financial news from the Finnhub API with a clean, responsive design.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- Latest financial news from Finnhub API
+- Fully responsive design
+- Image loading with skeleton placeholders
+- Fast performance with Vite
+- Unit tests with Vitest
 
-## Expanding the ESLint configuration
+## Setup
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+1. **Clone the repository**
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+   ```bash
+   git clone <repository-url>
+   cd maon_project
+   ```
 
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
+2. **Install dependencies**
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+   ```bash
+   pnpm install
+   ```
+
+3. **Set up environment variables**
+   ```bash
+   cp .env.example .env
+   ```
+   Edit `.env` and add your Finnhub API key:
+   ```
+   VITE_FINNHUB_API_KEY=your_api_key_here
+   ```
+
+## Development
+
+Start the development server:
+
+```bash
+pnpm dev
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## Testing
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+Run tests:
 
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+pnpm test
+```
+
+Run tests in watch mode:
+
+```bash
+pnpm test:watch
+```
+
+## Build
+
+Build for production:
+
+```bash
+pnpm build
+```
+
+Preview production build:
+
+```bash
+pnpm preview
+```
+
+## Tech Stack
+
+- **React** - UI library
+- **TypeScript** - Type safety
+- **Vite** - Build tool
+- **Vitest** - Testing framework
+- **Finnhub API** - Financial news data
+
+## Project Structure
+
+```
+src/
+├── components/          # React components
+├── types/              # TypeScript type definitions
+├── utils/              # Utility functions
+├── __tests__/          # Test files
+└── App.tsx            # Main application component
 ```
