@@ -13,7 +13,9 @@ const ImageWithSkeleton = ({ src, alt, className }: ImageWithSkeletonProps) => {
 
   return (
     <div className={`image-container ${className || ""}`}>
-      {!imageLoaded && !imageError && <div className="skeleton-loader"></div>}
+      {!imageLoaded && !imageError && (
+        <div className="skeleton-loader" data-testid="skeleton-loader"></div>
+      )}
       <img
         src={src}
         alt={alt}

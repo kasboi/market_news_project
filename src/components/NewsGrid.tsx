@@ -8,7 +8,7 @@ interface NewsGridProps {
 
 const NewsGrid = ({ articles }: NewsGridProps) => {
   return (
-    <div className="news-grid">
+    <div className="news-grid" data-testid="news-grid">
       {articles.map((article) => (
         <NewsCard key={article.id} article={article} />
       ))}
